@@ -1,0 +1,13 @@
+// first add jquery
+//then pest this js code
+<script>
+        $(function () {
+            var div_width = $('#get_width').width();
+            var div_height = div_width * 56 /100;
+            $('#video_iframe').css({ 'height' : div_height + 'px'});
+        });
+    </script>
+//then add id on your html tag element
+// add iframe tag id = "video_iframe"
+// and iframe parent id = "get_width"
+!! and then see the magic
