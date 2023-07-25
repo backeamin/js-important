@@ -1,0 +1,19 @@
+// js sample code
+
+<script>
+            function calculateTotal(){
+                var total_field = parseInt({{ count($pcs) }});
+                var total_amount = 0;
+                for (i = 1; i <= total_field; i++){
+                    var make_id = "pc_" + i;
+                    console.log(make_id)
+                    var inputted_value = document.getElementById(make_id).value;
+                    if(inputted_value == ""){
+                        continue
+                    }
+                    total_amount += parseFloat(inputted_value);
+
+                }
+                document.getElementById('total_amount').innerText = total_amount
+            }
+        </script>
