@@ -1,0 +1,37 @@
+// blade file code
+@foreach($pcs as $pc)
+                          <div class="row border-bottom align-items-center">
+                              <div class="col-1">{{$loop->iteration}}.</div>
+                              <div class="col-md-7">
+                                  @if($loop->iteration == 1 || $loop->iteration == 2)
+                                      <input type="month" name="pm_{{ $pc->id }}" style="border: unset">
+                                  @endif
+                                  {{$pc->title}}</div>
+                              <div class="col-md-4 d-flex"><input type="number" default-value="{{$pc->amount}}" name="pc_{{$pc->id}}" id="pc_{{ $loop->iteration }}" onkeyup="calculateTotal()" class="form-control">
+                                  <input onchange="updateInputValue()" class="mt-2 ms-2 mr-2" type="checkbox" id="pc_check_{{$pc->id}}"></div>
+                          </div>
+                      @endforeach
+
+
+
+
+// js Code
+function updateInputValue() {
+
+                var total_field = parseInt({{ count($pcs) }});
+                for (i = 1; i <= total_field; i++){
+                    var make_id = "pc_" + i;
+                    var make_check_id = 'pc_check_' + i;
+                    console.log(make_id)
+                    console.log(make_check_id)
+                    const inputElement = document.getElementById(make_id);
+                    const checkboxElement = document.getElementById(make_check_id);
+                    if (checkboxElement.checked) {
+                        const customAttributeValue = inputElement.getAttribute('default-value');
+                        inputElement.value = customAttributeValue || ''; // Set the input field value
+                    } else {
+                        inputElement.value = ''; // Reset the input field value
+                    }
+                }
+
+            }
