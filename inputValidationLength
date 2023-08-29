@@ -22,3 +22,29 @@
             });
         });
     </script>
+
+
+
+
+
+///only one input with id
+<input id="inputField" oninput="checkLength()" type="text" name="title" required
+                                           class="form-control form-control2">
+                                    <div id="errorText" style="color: red;"></div>
+
+
+
+ <script>
+        function checkLength() {
+            var input = document.getElementById("inputField");
+            var errorText = document.getElementById("errorText");
+
+            if (input.value.length > 255) {
+                input.classList.add('is-invalid');
+                errorText.innerHTML = "(২৫৫ ক্যারেক্টার) এর বেশি গ্রহণ যোগ্য নয়";
+            } else {
+                input.classList.remove('is-invalid');
+                errorText.innerHTML = "";
+            }
+        }
+    </script>
