@@ -1,0 +1,12 @@
+ function limitCharacters(textArea, maxLength) {
+                var charCount = textArea.value.length;
+                var charCountSpan = document.getElementById("charCount");
+
+                if (charCount > maxLength) {
+                    // Trim the text to the first 100 characters
+                    textArea.value = textArea.value.substring(0, maxLength);
+                    charCount = maxLength;
+                }
+
+                charCountSpan.textContent = charCount;
+            }
