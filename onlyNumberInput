@@ -1,0 +1,16 @@
+<input type="text" id="phone"  onkeypress="return isNumeric(event)" name="phone" required placeholder="আপনার ফোন নম্বর দিন" class="form-control number">
+
+            function isNumeric(event) {
+                // Get the key code of the pressed key
+                const keyCode = event.which || event.keyCode;
+
+                // Allow only numeric characters (0-9)
+                if (keyCode < 48 || keyCode > 57) {
+                    // Prevent the default action (e.g., typing the non-numeric character)
+                    event.preventDefault();
+                    return false;
+                }
+
+                // If the pressed key is a numeric character, allow it
+                return true;
+            }
