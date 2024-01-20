@@ -1,13 +1,17 @@
-function passConfirmed(){
+ function passConfirmed(){
             var pass = document.getElementById('password').value;
-            var confirm = document.getElementById('confirmPassword').value;
+            var confirm = document.getElementById('password-confirm').value;
             var error = document.getElementById('errorMessage');
             var success = document.getElementById('successMessage');
-            if (pass !== confirm){
-                error.style.display = 'block';
-                success.style.display = 'none'
-            }else {
-                error.style.display = 'none';
-                success.style.display = 'block'
-            }
+           if(confirm !== ''){
+               if (pass !== confirm){
+                   error.style.display = 'block';
+                   success.style.display = 'none'
+               }else {
+                   error.style.display = 'none';
+                   success.style.display = 'block'
+               }
+           }
         }
+
+// set onkyeup to this function
