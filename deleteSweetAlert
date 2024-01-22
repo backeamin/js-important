@@ -1,0 +1,40 @@
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+               <script>
+                   document.addEventListener('DOMContentLoaded', function () {
+                       // Get all delete buttons
+                       var deleteButtons = document.querySelectorAll('.delete-btn');
+
+                       // Attach a click event listener to each delete button
+                       deleteButtons.forEach(function (button) {
+                           button.addEventListener('click', function (event) {
+                               event.preventDefault(); 
+                               // Show SweetAlert confirmation dialog
+                               Swal.fire({
+                                   title: 'Are you sure?',
+                                   text: 'আপনি কি এই ডাটা টি ডিলিট করতে চাচ্ছেন!',
+                                   icon: 'warning',
+                                   showCancelButton: true,
+                                   confirmButtonColor: '#d33',
+                                   cancelButtonColor: '#3085d6',
+                                   confirmButtonText: 'হ্যা',
+                                   cancelButtonText: 'না'
+                               }).then((result) => {
+                                   if (result.isConfirmed) {
+                                       // Submit the corresponding form
+                                       var form = document.getElementById('delete-form-' + button.dataset.itemId);
+                                       if (form) {
+                                           form.addEventListener('submit', function (event) {
+                                               // Prevent the form from submitting by default
+                                               event.preventDefault();
+
+                                               // Manually submit the form
+                                               form.submit();
+                                           });
+                                           form.submit(); // Trigger the form submission manually
+                                       }
+                                   }
+                               });
+                           });
+                       });
+                   });
+               </script>
