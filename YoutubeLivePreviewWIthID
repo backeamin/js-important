@@ -1,0 +1,22 @@
+ <script>
+        function openYouTubeVideo() {
+            // Get the YouTube video ID from the input field
+            var youtubeId = document.getElementById("youtube_id").value;
+
+            // Construct the YouTube video URL
+            var youtubeUrl = "https://www.youtube.com/watch?v=" + youtubeId;
+
+            // Get the anchor tag
+            var anchorTag = document.getElementById("button-addon2");
+
+            // Set the href attribute to the YouTube video URL
+            anchorTag.setAttribute("href", youtubeUrl);
+
+        }
+    </script>
+
+
+ <div class="input-group mb-3">
+ <input id="youtube_id" onkeyup="openYouTubeVideo()" required value="{{ $page_type == 'create' ? old('youtube_id') : $video->youtube_id }}" name="youtube_id" type="text" class="form-control" placeholder="Youtube ID" aria-label="Recipient's username" aria-describedby="button-addon2">
+    <a target="_blank" class="btn btn-outline-secondary" type="button" id="button-addon2" >View Your Video</a>
+    </div>
