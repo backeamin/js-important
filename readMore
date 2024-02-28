@@ -1,0 +1,22 @@
+ <span class="mr-2" id="short_version{{ $client_follow_up->id }}">{{ Str::limit($client_follow_up->feedback, 40) }}</span>
+                                <span class="d-none mr-2" id="full_version{{ $client_follow_up->id }}">{{ $client_follow_up->feedback }}</span>
+                                <button onclick="readMoreLess({{$client_follow_up->id}})"  style="background-color: transparent;" class="text-primary" id="read_more{{ $client_follow_up->id }}">Read More</button>
+
+
+ <script>
+        function readMoreLess(id){
+            let shortVersionId = 'short_version'+id;
+            let fullVersionId = 'full_version'+id;
+            let readMore = 'read_more'+id;
+            if(document.getElementById(readMore).innerText === 'Read More'){
+                document.getElementById(shortVersionId).classList.add('d-none');
+                document.getElementById(fullVersionId).classList.remove('d-none');
+                document.getElementById(readMore).innerText = 'Read Less';
+            }else{
+                document.getElementById(shortVersionId).classList.remove('d-none');
+                document.getElementById(fullVersionId).classList.add('d-none');
+                document.getElementById(readMore).innerText = 'Read More';
+            }
+
+        }
+    </script>
