@@ -1,4 +1,6 @@
-   <script>
+<button class="dropdown-item" onclick="copyText('{{route('client_schedule', $schedule->id)}}')">Copy Link</button>
+
+<script>
         function copyText(text) {
             // Get the text field
             var copyText = text;
