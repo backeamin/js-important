@@ -1,0 +1,8 @@
+<script>
+                $(window).on('load', function() {
+                    $("#openModal").click();
+                });
+                $(window).on('reload', function() {
+                    window.location.href = 'index.html';
+                });
+            </script>
