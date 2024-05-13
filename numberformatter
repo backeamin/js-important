@@ -1,0 +1,21 @@
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var amountCells = document.querySelectorAll('.amount-cell');
+    amountCells.forEach(function(cell) {
+        var value = parseFloat(cell.textContent.trim().replace(/[^0-9.-]+/g,""));
+        if (!isNaN(value)) {
+            cell.textContent = number_formatter(value);
+        }
+    });
+});
+
+function number_formatter(value){
+    const FORMATTER = new Intl.NumberFormat('en-IN', {
+        style: 'decimal',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+    });
+    var result = FORMATTER.format(value);
+    return result;
+}
+</script>
